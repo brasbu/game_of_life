@@ -1,10 +1,10 @@
 // create a NxN grid
 
-const rows = 40;
-const cols = 40;
+const rows = 50;
+const cols = 50;
 let started = false;// Set to true when use clicks start
 let timer;//To control evolutions
-let evolutionSpeed = 500;// One second between generations
+let evolutionSpeed = 250;// One second between generations
 
 // Need 2D arrays. These are 1D
 let currGen = [rows];
@@ -202,12 +202,12 @@ function startStopGol() {
 
     if (!started) {
         started = true;
-        startstop.value = 'Stop Reproducing';
+        startstop.value = 'Stop';
         evolve();
 
     } else {
         started = false;
-        startstop.value = 'Start Reproducing';
+        startstop.value = 'Start';
         clearTimeout(timer);
     }
 }

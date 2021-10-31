@@ -1,26 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conway's Game of Life</title>
     <link rel="stylesheet" href="style.css">
-    
-    
 
 </head>
+
 <body>
-   <!-- Let's define our world were all the cells will live in. We will then use javascript to create the table-->
-   <div id="world">
+    
+    
+    <div class="row">
+        
+        <div class="display-world">
+            
+            <div class = "animation horizontal-center">
+                <div class="title">
+                    <img class = "r-margin-10" src="shopify_logo.png" alt="Done For Shopify Technical Interview" height="50" >
+                    <h2>Play the Conway's Game Of Life</h2>
+                </div>
+                
+                <p>Click on cells to draw patterns. Then use controls below to start or reset the game of life. <br>
+                Once the game is in motion, you can kill or ressurect a cell. This adds a little spin to the game.
+                </p>
+                <div class="table" id="world">
+                    <!--Let's define our world were all the cells will live in. We will then use javascript to create the table -->
 
-   </div>
-<h2>Click on table cells to toggle the cells as alive or dead.</h2>
-<h3>Click the Start Reproducing button to Start and Stop</h3>
-<Input type='button' id='btnstartstop' value='Start Reproducing' onclick='startStopGol();' />
-<Input type='button' id='btnreset' value='Reset World' onclick='resetWorld();' />
+                </div>
+                <Input class='button' type='button' id='btnstartstop' value='Start' onclick='startStopGol();' />
+                <Input class='button' type='button' id='btnreset' value='Reset' onclick='resetWorld();' />
+            </div>
 
 
-<script src="javascript.js"></script>
+            
+        </div>
+        <div class="rules">
+            <h2>Rules</h2>
+            <div class="rules-detail">
+                <p>Any live cell with fewer than two live neighbors dies, as if caused by under population.</li>
+                <p>Any live cell with two or three live neighbors lives on to the next generation.</li>
+                <p>Any live cell with more than three live neighbors dies, as if by overcrowding.</li>
+                <p>Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.</li>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script src="javascript.js"></script>
 </body>
+
 </html>
