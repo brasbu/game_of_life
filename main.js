@@ -2,6 +2,9 @@
 
 const rows = 40;
 const cols = 40;
+let started = false;// Set to true when use clicks start
+let timer;//To control evolutions
+let evolutionSpeed = 500;// One second between generations
 
 // Need 2D arrays. These are 1D
 let currGen = [rows];
@@ -13,6 +16,7 @@ function createGenArrays() {
         nextGen[i] = new Array(cols);
     }
 }
+
 function initGenArrays() {
     for (let i = 0; i < rows; i++) {
         for (let j = 0; j < cols; j++) {
@@ -21,8 +25,6 @@ function initGenArrays() {
         }
     }
 }
-
-
 
 function createWorld() {
     let world = document.querySelector('#world');
@@ -58,10 +60,6 @@ function cellClick() {
     }
 }
 
-
-
-
-
 window.onload = () => {
     createWorld();
     createGenArrays();// current and next generations
@@ -73,6 +71,10 @@ function evolve() {
     createNextGen();//Apply the rules
     updateCurrGen();//Set Current values from new generation
     updateWorld();//Update the world view
+
+    if (started) {
+        timer = setTimeout(evolve, evolutionSpeed);
+    }
 }
 
 function updateCurrGen() {
@@ -89,7 +91,6 @@ function updateCurrGen() {
 
 }
 
-
 function updateWorld() {
     let cell = '';
     for (row in currGen) {
@@ -103,7 +104,6 @@ function updateWorld() {
         }
     }
 }
-
 
 function createNextGen() {
     for (row in currGen) {
@@ -134,7 +134,6 @@ function createNextGen() {
     }
 
 }
-
 
 function getNeighborCount(row, col) {
     let count = 0;
@@ -196,4 +195,23 @@ function getNeighborCount(row, col) {
 
 
     return count;
+}
+
+function startStopGol() {
+    let startstop = document.querySelector('#btnstartstop');
+
+    if (!started) {
+        started = true;
+        startstop.value = 'Stop Reproducing';
+        evolve();
+
+    } else {
+        started = false;
+        startstop.value = 'Start Reproducing';
+        clearTimeout(timer);
+    }
+}
+
+function resetWorld() {
+    location.reload();
 }
