@@ -1,6 +1,6 @@
 # Conway's Game Of Life
 
-To play my version of this game, go (here)[]
+To play my version of this game, go [here](https://brasbu.github.io/game_of_life/).
 
 
 ### Rules
