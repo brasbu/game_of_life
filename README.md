@@ -1,5 +1,7 @@
 # Conway's Game Of Life
 
+To play my version of this game, go (here)[]
+
 
 ### Rules
 
